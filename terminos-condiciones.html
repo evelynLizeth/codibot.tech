@@ -1,45 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos y Condiciones - codibot</title>
-    <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 2rem; max-width: 800px; margin: auto; }
-        h1, h2 { color: #333; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Términos y Condiciones | Codibot Tech</title>
+<style>
+  :root {
+    --bg-dark: #0A1128; --bg-card: #141E36;
+    --primary-blue: #3B82F6; --primary-purple: #8B5CF6;
+    --gradient: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    --text-light: #F8FAFC; --text-muted: #94A3B8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--text-muted); line-height: 1.7; background: var(--bg-dark); }
+  a { color: var(--primary-blue); text-decoration: none; transition: color .3s; }
+  a:hover { color: var(--primary-purple); text-decoration: underline; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+  header {
+    background: rgba(10, 17, 40, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 16px 0; position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+  }
+  .nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .logo-container { display: flex; flex-direction: column; }
+  .logo { font-size: 1.5rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 6px; letter-spacing: -0.5px; }
+  .logo .icon { font-weight: 400; font-size: 1.3rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .logo .codi { color: #fff; }
+  .logo .bot { background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .logo-tagline { font-size: 0.55rem; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-top: -2px; }
+  .logo-tagline span { background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .back-btn {
+    background: var(--gradient); color: #fff; padding: 9px 22px; border-radius: 50px;
+    font-weight: 600; font-size: .9rem; transition: transform .25s, box-shadow .25s;
+  }
+  .back-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,130,246,.4); text-decoration: none; color: #fff; }
+
+  main { padding: 70px 0 60px; }
+  .page-title {
+    font-size: 2.4rem; color: #fff; margin-bottom: 12px;
+    background: var(--gradient); background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 4s linear infinite;
+    letter-spacing: -.5px;
+  }
+  .page-sub { color: var(--text-muted); font-size: 1rem; margin-bottom: 40px; }
+  .legal-card {
+    background: var(--bg-card);
+    border-radius: 20px; padding: 45px 40px;
+    border: 1px solid rgba(255,255,255,.05);
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    border-left: 5px solid var(--primary-purple);
+  }
+  .legal-card h2 { font-size: 1.25rem; color: #fff; margin: 28px 0 12px; display: flex; align-items: center; gap: 10px; }
+  .legal-card h2:first-of-type { margin-top: 0; }
+  .legal-card h2::before {
+    content: ''; width: 8px; height: 8px; background: var(--gradient); border-radius: 50%; flex-shrink: 0;
+  }
+  .legal-card p { color: #CBD5E1; margin-bottom: 12px; font-size: .95rem; }
+  .legal-card strong { color: #fff; }
+  .intro-box {
+    background: rgba(139,92,246,.08); border-left: 4px solid var(--primary-purple);
+    padding: 20px 24px; border-radius: 10px; margin-bottom: 28px;
+  }
+  .intro-box p { color: #CBD5E1; margin: 0; }
+
+  footer {
+    background: #050812; color: var(--text-muted);
+    padding: 40px 0 25px; font-size: .88rem; margin-top: 60px;
+  }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.05); padding-top: 20px; text-align: center; color: #64748B; }
+  .footer-bottom p { margin-bottom: 6px; }
+  .footer-bottom strong { color: #CBD5E1; }
+
+  @media (max-width: 600px) {
+    .page-title { font-size: 1.8rem; }
+    .legal-card { padding: 30px 22px; }
+    .logo-tagline { display: none; }
+  }
+</style>
 </head>
 <body>
-    <h1>Términos y Condiciones</h1>
-    <p><strong>Última actualización:</strong> 15 de octubre de 2026</p>
 
-    <h2>1. Aceptación</h2>
-    <p>Al registrarse y usar codibot, usted acepta estos Términos y Condiciones y la Política de Privacidad.</p>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo-container" style="text-decoration:none;">
+      <div class="logo"><span class="icon">&lt;/&gt;</span><span class="codi">codi</span><span class="bot">bot</span></div>
+      <div class="logo-tagline">IDEAS QUE <span>TRABAJAN POR TI.</span></div>
+    </a>
+    <a href="index.html" class="back-btn">← Volver al inicio</a>
+  </div>
+</header>
 
-    <h2>2. Descripción del servicio</h2>
-    <p>codibot es una plataforma que permite configurar y operar un chatbot de WhatsApp con hasta 10 preguntas y respuestas personalizadas.</p>
+<main>
+  <div class="container">
+    <h1 class="page-title">Términos y Condiciones</h1>
+    <p class="page-sub">Última actualización: 15 de octubre de 2026</p>
 
-    <h2>3. Suscripción y pagos</h2>
-    <p>El servicio se cobra de forma mensual a través de Payphone. El no pago dentro del plazo genera la suspensión automática del chatbot hasta que se regularice el pago.</p>
+    <div class="legal-card">
+      <div class="intro-box">
+        <p>Estos términos regulan el uso de <strong>Codibot Tech</strong>, servicio operado por <strong>ZAMBRANO MOYA EVELYN LIZETH</strong>, RUC 1714298773001. Al contratar cualquiera de nuestros planes, aceptas estas condiciones.</p>
+      </div>
 
-    <h2>4. Uso aceptable</h2>
-    <p>El usuario se compromete a no usar el servicio para actividades ilegales, spam, o contenido que viole las políticas de WhatsApp y Meta.</p>
+      <h2>1. Aceptación</h2>
+      <p>Al registrarse y usar Codibot, usted acepta estos Términos y Condiciones y la Política de Privacidad.</p>
 
-    <h2>5. Responsabilidad</h2>
-    <p>codibot no se hace responsable por el uso indebido del servicio por parte del usuario ni por interrupciones causadas por terceros (Meta, Cloudflare, Payphone).</p>
+      <h2>2. Descripción del servicio</h2>
+      <p>Codibot es una plataforma que permite configurar y operar un chatbot de WhatsApp con hasta 10 preguntas y respuestas personalizadas, además de las funcionalidades incluidas en cada plan.</p>
 
-    <h2>6. Propiedad intelectual</h2>
-    <p>El software de codibot es propiedad de su titular. El usuario conserva la propiedad de las preguntas y respuestas que configure.</p>
+      <h2>3. Suscripción y pagos</h2>
+      <p>El servicio se cobra de forma mensual a través de Payphone. El no pago dentro del plazo genera la suspensión automática del chatbot hasta que se regularice el pago.</p>
 
-    <h2>7. Cancelación</h2>
-    <p>El usuario puede cancelar su cuenta en cualquier momento. Los datos serán eliminados según la Política de Privacidad.</p>
+      <h2>4. Uso aceptable</h2>
+      <p>El usuario se compromete a no usar el servicio para actividades ilegales, spam, o contenido que viole las políticas de WhatsApp y Meta.</p>
 
-    <h2>8. Modificaciones</h2>
-    <p>codibot puede modificar estos términos notificando al usuario con antelación razonable.</p>
+      <h2>5. Responsabilidad</h2>
+      <p>Codibot no se hace responsable por el uso indebido del servicio por parte del usuario ni por interrupciones causadas por terceros (Meta, Cloudflare, Payphone).</p>
 
-    <h2>9. Legislación aplicable</h2>
-    <p>Estos términos se rigen por las leyes de la República del Ecuador.</p>
+      <h2>6. Propiedad intelectual</h2>
+      <p>El software de Codibot es propiedad de su titular. El usuario conserva la propiedad de las preguntas y respuestas que configure.</p>
 
-    <p><a href="/index.html">Volver al inicio</a></p>
+      <h2>7. Cancelación</h2>
+      <p>El usuario puede cancelar su cuenta en cualquier momento. Los datos serán eliminados según la Política de Privacidad.</p>
+
+      <h2>8. Modificaciones</h2>
+      <p>Codibot puede modificar estos términos notificando al usuario con antelación razonable.</p>
+
+      <h2>9. Legislación aplicable</h2>
+      <p>Estos términos se rigen por las leyes de la República del Ecuador. Cualquier controversia se resolverá en los tribunales de Quito.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p><strong>ZAMBRANO MOYA EVELYN LIZETH</strong> — RUC: 1714298773001</p>
+      <p>Velasco Ibarra LT-122, Vía a Nono, Quito, Pichincha, Ecuador</p>
+      <p style="margin-top:12px;">© 2026 Codibot Tech. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
