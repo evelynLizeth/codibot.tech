@@ -73,7 +73,6 @@
   .btn-wa { background: var(--whatsapp); color: #fff; }
   .btn-wa:hover { background: #20b858; box-shadow: 0 12px 28px rgba(37,211,102,.4); }
 
-  /* MOCKUP CHAT ANIMADO (el del primer diseño) */
   .chat-mockup { background: var(--bg-card); border-radius: 22px; padding: 20px; box-shadow: 0 30px 60px rgba(0,0,0,.5); animation: floatY 6s ease-in-out infinite; max-width: 380px; margin-left: auto; position: relative; border: 1px solid rgba(255,255,255,.05); }
   .chat-mockup::before { content:''; position:absolute; top: -18px; left: -18px; width: 60px; height: 60px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite; z-index: -1; }
   .chat-header { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 14px; }
@@ -162,14 +161,6 @@
   .contact-info p { font-size: 1.05rem; }
   .contact-info a { color: var(--primary-blue); font-weight: 600; }
 
-  .legal { background: var(--bg-card); padding: 70px 0; border-top: 1px solid rgba(255,255,255,.05); }
-  .legal h2 { font-size: 1.7rem; color: #fff; margin-bottom: 18px; }
-  .legal h3 { font-size: 1.1rem; color: #fff; margin: 22px 0 8px; }
-  .legal p, .legal li { color: var(--text-muted); font-size: .95rem; margin-bottom: 10px; }
-  .legal ul { padding-left: 22px; }
-  .legal-box { background: rgba(59,130,246,.05); border-left: 4px solid var(--primary-blue); padding: 20px 24px; border-radius: 8px; margin-bottom: 24px; }
-  .legal-box p { color: #CBD5E1; }
-
   footer { background: #050812; color: var(--text-muted); padding: 50px 0 25px; font-size: .9rem; }
   .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 32px; margin-bottom: 35px; }
   footer h4 { color: #fff; margin-bottom: 14px; font-size: 1rem; }
@@ -179,44 +170,30 @@
   footer a:hover { color: var(--primary-blue); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,.05); padding-top: 22px; text-align: center; font-size: .85rem; color: #64748B; }
 
-  /* ============ WHATSAPP FLOTANTE ============ */
-  .wa-float {
-    position: fixed; bottom: 25px; right: 25px; z-index: 998;
-    width: 58px; height: 58px; border-radius: 50%;
-    background: var(--whatsapp);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 1.7rem;
-    box-shadow: 0 8px 30px rgba(37,211,102,.4);
-    animation: pulse 2.5s infinite;
-    transition: transform .3s;
-  }
-  .wa-float:hover { transform: scale(1.12) rotate(8deg); text-decoration: none; }
-
-  /* ============ CHATBOT WIDGET ============ */
+  /* ============ CHATBOT WIDGET (Robot sin burbuja) ============ */
   .chat-widget-btn {
-    position: fixed; bottom: 95px; right: 25px; z-index: 999;
-    width: 66px; height: 66px; border-radius: 50%;
-    background: var(--bg-card);
+    position: fixed; bottom: 25px; right: 25px; z-index: 999;
+    width: 90px; height: 90px;
+    background: transparent;
     display: flex; align-items: center; justify-content: center;
-    cursor: pointer; border: 2px solid rgba(139,92,246,.5);
-    box-shadow: 0 10px 30px rgba(139,92,246,.5);
-    transition: all .3s;
+    cursor: pointer; border: none;
+    transition: transform .3s;
     animation: floatY 4s ease-in-out infinite;
   }
-  .chat-widget-btn:hover { transform: scale(1.1); border-color: var(--primary-blue); box-shadow: 0 12px 40px rgba(59,130,246,.6); }
-  .chat-widget-btn img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; padding: 3px; }
+  .chat-widget-btn:hover { transform: scale(1.12); }
+  .chat-widget-btn img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 10px 25px rgba(139,92,246,.55)); }
   .chat-widget-btn .notif {
-    position: absolute; top: -2px; right: -2px;
-    width: 20px; height: 20px; background: #EF4444; border-radius: 50%;
-    color: #fff; font-size: .7rem; display: flex; align-items: center; justify-content: center;
+    position: absolute; top: 8px; right: 8px;
+    width: 22px; height: 22px; background: #EF4444; border-radius: 50%;
+    color: #fff; font-size: .72rem; display: flex; align-items: center; justify-content: center;
     font-weight: 700; animation: pulse 1.5s infinite;
     border: 2px solid var(--bg-dark);
   }
 
   .chat-window {
-    position: fixed; bottom: 175px; right: 25px; z-index: 1000;
+    position: fixed; bottom: 130px; right: 25px; z-index: 1000;
     width: 370px; max-width: calc(100vw - 40px); height: 540px;
-    max-height: calc(100vh - 210px);
+    max-height: calc(100vh - 170px);
     background: var(--bg-card); border-radius: 22px;
     box-shadow: 0 30px 70px rgba(0,0,0,.6);
     border: 1px solid rgba(255,255,255,.08);
@@ -287,7 +264,8 @@
     .plan .price { font-size: 2.2rem; }
     .stat .num { font-size: 2.1rem; }
     .logo-tagline { display: none; }
-    .chat-window { width: calc(100vw - 30px); right: 15px; bottom: 165px; height: 70vh; max-height: 500px; }
+    .chat-window { width: calc(100vw - 30px); right: 15px; bottom: 120px; height: 70vh; max-height: 500px; }
+    .chat-widget-btn { width: 78px; height: 78px; bottom: 18px; right: 15px; }
   }
 </style>
 </head>
@@ -324,7 +302,6 @@
         </div>
       </div>
 
-      <!-- MOCKUP CHAT ANIMADO -->
       <div class="chat-mockup">
         <div class="chat-header">
           <div class="chat-avatar">🤖</div>
@@ -478,49 +455,6 @@
   </div>
 </section>
 
-<section id="privacidad" class="legal">
-  <div class="container">
-    <h2>Política de Privacidad</h2>
-    <div class="legal-box">
-      <p><strong>Última actualización:</strong> Octubre 2026</p>
-      <p>En Codibot Tech, titularidad de ZAMBRANO MOYA EVELYN LIZETH con RUC 1714298773001, respetamos tu privacidad y protegemos tus datos personales conforme a la Ley Orgánica de Protección de Datos Personales del Ecuador.</p>
-    </div>
-    <h3>1. Información que recopilamos</h3>
-    <p>Recopilamos información que nos proporcionas directamente al contactarnos: nombre, número de teléfono, correo electrónico y datos de tu negocio.</p>
-    <h3>2. Uso de la información</h3>
-    <p>Utilizamos tus datos para brindar nuestros servicios de desarrollo de chatbots, responder consultas, enviar información comercial y mejorar nuestros servicios.</p>
-    <h3>3. Compartir información con terceros</h3>
-    <p>No vendemos ni compartimos tus datos personales con terceros, excepto cuando sea necesario para prestar el servicio o cuando la ley lo exija.</p>
-    <h3>4. Datos de conversaciones</h3>
-    <p>Los chatbots desarrollados por Codibot Tech pueden almacenar conversaciones con fines de mejora del servicio.</p>
-    <h3>5. Derechos del usuario</h3>
-    <p>Puedes solicitar el acceso, rectificación o eliminación de tus datos escribiendo a <a href="mailto:contacto@codibot.tech">contacto@codibot.tech</a>.</p>
-  </div>
-</section>
-
-<section id="terminos" class="legal" style="background: #0A1128;">
-  <div class="container">
-    <h2>Términos y Condiciones del Servicio</h2>
-    <div class="legal-box">
-      <p><strong>Titular:</strong> ZAMBRANO MOYA EVELYN LIZETH — RUC 1714298773001</p>
-    </div>
-    <h3>1. Aceptación</h3>
-    <p>Al contratar cualquiera de nuestros planes, aceptas los presentes términos y condiciones.</p>
-    <h3>2. Descripción del servicio</h3>
-    <p>Codibot Tech ofrece servicios de desarrollo, implementación y mantenimiento de chatbots para plataformas de mensajería.</p>
-    <h3>3. Pagos</h3>
-    <p>Los planes se facturan mensualmente. El pago debe realizarse por anticipado para activar el servicio.</p>
-    <h3>4. Cancelación</h3>
-    <p>El cliente puede cancelar el servicio en cualquier momento notificando por escrito.</p>
-    <h3>5. Responsabilidad</h3>
-    <p>Codibot Tech no se hace responsable por interrupciones en servicios de terceros ni por el uso indebido de los datos por parte del cliente.</p>
-    <h3>6. Propiedad intelectual</h3>
-    <p>El código y los desarrollos personalizados son propiedad de Codibot Tech.</p>
-    <h3>7. Ley aplicable</h3>
-    <p>Estos términos se rigen por las leyes de la República del Ecuador.</p>
-  </div>
-</section>
-
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -540,8 +474,8 @@
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="#privacidad">Política de Privacidad</a></li>
-          <li><a href="#terminos">Términos y Condiciones</a></li>
+          <li><a href="política-privacidad.html">Política de Privacidad</a></li>
+          <li><a href="términos-condiciones.html">Términos y Condiciones</a></li>
         </ul>
       </div>
       <div>
@@ -562,10 +496,7 @@
   </div>
 </footer>
 
-<!-- ============ WHATSAPP FLOTANTE ============ -->
-<a href="https://wa.me/593987695938?text=Hola%2C%20quiero%20info%20sobre%20sus%20chatbots" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
-
-<!-- ============ CHATBOT WIDGET ============ -->
+<!-- ============ CHATBOT WIDGET (Robot sin burbuja) ============ -->
 <div class="chat-widget-btn" id="chatBtn" aria-label="Abrir chat">
   <img src="img/robot.png" alt="Chatear con Codibot">
   <span class="notif" id="chatNotif">1</span>
@@ -675,7 +606,9 @@
     { k: ['demo','prueba','muestra','ejemplo','ver'], r: '¡Claro! Puedes ver un ejemplo de nuestros bots en la sección de **Planes** de esta web, o escribirnos al WhatsApp **0987695938** para coordinar una demostración en vivo. 🚀' },
     { k: ['tiempo','demora','tarda','entrega','cuándo','cuando'], r: 'El tiempo de implementación depende del plan:\n• Essential: 3 a 5 días hábiles\n• Vendedor: 5 a 10 días hábiles\n\nCoordinamos todo por WhatsApp al **0987695938**.' },
     { k: ['factura','facturación','facturacion','recibo'], r: 'Sí, emitimos factura. Al contratar te pediremos tus datos de facturación para emitir el comprobante correspondiente.' },
-    { k: ['cancelar','cancelación','cancelacion','terminar'], r: 'Puedes cancelar el servicio en cualquier momento notificándonos por escrito. No se realizan reembolsos por períodos ya facturados.' }
+    { k: ['cancelar','cancelación','cancelacion','terminar'], r: 'Puedes cancelar el servicio en cualquier momento notificándonos por escrito. No se realizan reembolsos por períodos ya facturados.' },
+    { k: ['privacidad','datos','protección','proteccion'], r: 'Puedes leer nuestra **Política de Privacidad** completa aquí: <a href="política-privacidad.html">Ver política</a>' },
+    { k: ['términos','terminos','condiciones'], r: 'Puedes leer nuestros **Términos y Condiciones** completos aquí: <a href="términos-condiciones.html">Ver términos</a>' }
   ];
 
   const quickReplyOptions = ['Ver planes', 'Precios', 'Contacto', 'WhatsApp', 'Ubicación'];
