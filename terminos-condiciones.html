@@ -56,12 +56,20 @@
     box-shadow: 0 20px 50px rgba(0,0,0,.4);
     border-left: 5px solid var(--primary-purple);
   }
-  .legal-card h2 { font-size: 1.25rem; color: #fff; margin: 28px 0 12px; display: flex; align-items: center; gap: 10px; }
+  .legal-card h2 { font-size: 1.2rem; color: #fff; margin: 30px 0 12px; display: flex; align-items: center; gap: 10px; }
   .legal-card h2:first-of-type { margin-top: 0; }
   .legal-card h2::before {
     content: ''; width: 8px; height: 8px; background: var(--gradient); border-radius: 50%; flex-shrink: 0;
   }
   .legal-card p { color: #CBD5E1; margin-bottom: 12px; font-size: .95rem; }
+  .legal-card ul { list-style: none; padding-left: 0; margin-bottom: 12px; }
+  .legal-card ul li {
+    color: #CBD5E1; font-size: .95rem; padding: 6px 0 6px 26px; position: relative;
+  }
+  .legal-card ul li::before {
+    content: '✓'; position: absolute; left: 0; top: 6px;
+    color: var(--primary-purple); font-weight: 800;
+  }
   .legal-card strong { color: #fff; }
   .intro-box {
     background: rgba(139,92,246,.08); border-left: 4px solid var(--primary-purple);
@@ -99,39 +107,64 @@
 <main>
   <div class="container">
     <h1 class="page-title">Términos y Condiciones</h1>
-    <p class="page-sub">Última actualización: 15 de octubre de 2026</p>
+    <p class="page-sub">Última actualización: 16 de octubre de 2026</p>
 
     <div class="legal-card">
       <div class="intro-box">
-        <p>Estos términos regulan el uso de <strong>Codibot Tech</strong>, servicio operado por <strong>ZAMBRANO MOYA EVELYN LIZETH</strong>, RUC 1714298773001. Al contratar cualquiera de nuestros planes, aceptas estas condiciones.</p>
+        <p>Estos términos regulan el uso de <strong>Codibot Tech</strong>, servicio operado en Quito, Ecuador, con atención 100% online. Al contratar cualquiera de nuestros planes, aceptas estas condiciones y nuestra Política de Privacidad.</p>
       </div>
 
-      <h2>1. Aceptación</h2>
-      <p>Al registrarse y usar Codibot, usted acepta estos Términos y Condiciones y la Política de Privacidad.</p>
+      <h2>1. Identificación del Prestador del Servicio</h2>
+      <p><strong>Denominación comercial:</strong> Codibot Tech</p>
+      <p><strong>Correo de contacto:</strong> <a href="mailto:contacto@codibot.tech">contacto@codibot.tech</a></p>
+      <p><strong>Ubicación:</strong> Quito, Ecuador</p>
+      <p><strong>Modalidad:</strong> Atención 100% online</p>
 
-      <h2>2. Descripción del servicio</h2>
-      <p>Codibot es una plataforma que permite configurar y operar un chatbot de WhatsApp con hasta 10 preguntas y respuestas personalizadas, además de las funcionalidades incluidas en cada plan.</p>
+      <h2>2. Aceptación de los Términos</h2>
+      <p>Al registrarse, contratar o usar los servicios de Codibot Tech, usted acepta estos Términos y Condiciones y la Política de Privacidad. Si no está de acuerdo con alguna parte, deberá abstenerse de usar el servicio.</p>
 
-      <h2>3. Suscripción y pagos</h2>
-      <p>El servicio se cobra de forma mensual a través de Payphone. El no pago dentro del plazo genera la suspensión automática del chatbot hasta que se regularice el pago.</p>
+      <h2>3. Descripción del Servicio</h2>
+      <p>Codibot Tech es una plataforma que permite configurar y operar un chatbot para WhatsApp, Instagram y Messenger, con funcionalidades que varían según el plan contratado (Essential o Vendedor). El servicio incluye la implementación, configuración y soporte del chatbot.</p>
 
-      <h2>4. Uso aceptable</h2>
-      <p>El usuario se compromete a no usar el servicio para actividades ilegales, spam, o contenido que viole las políticas de WhatsApp y Meta.</p>
+      <h2>4. Suscripción, Pagos y Suspensión del Servicio</h2>
+      <p><strong>4.1 Facturación mensual.</strong> El servicio se cobra de forma mensual a través de las pasarelas de pago habilitadas (ej. Payphone). Los precios están expresados en dólares estadounidenses (USD).</p>
+      <p><strong>4.2 Pago por adelantado.</strong> El pago debe realizarse por anticipado para activar y mantener el servicio.</p>
+      <p><strong>4.3 Suspensión automática por falta de pago.</strong> El incumplimiento en el pago de la factura mensual dentro del plazo estipulado facultará a Codibot Tech a <strong>suspender el acceso al servicio de forma automática e inmediata</strong>, sin necesidad de notificación previa, conforme a lo permitido por la Ley Orgánica de Defensa del Consumidor del Ecuador para casos de incumplimiento imputable al consumidor[reference:0].</p>
+      <p><strong>4.4 Reactivación.</strong> La reactivación del servicio se realizará únicamente una vez que el cliente haya cancelado la totalidad de los valores pendientes.</p>
+      <p><strong>4.5 Obligación de pago durante la suspensión.</strong> El tiempo durante el cual el servicio permanezca suspendido no exime al cliente de su obligación de pago de las mensualidades vencidas.</p>
 
-      <h2>5. Responsabilidad</h2>
-      <p>Codibot no se hace responsable por el uso indebido del servicio por parte del usuario ni por interrupciones causadas por terceros (Meta, Cloudflare, Payphone).</p>
+      <h2>5. Uso Aceptable</h2>
+      <p>El usuario se compromete a no usar el servicio para:</p>
+      <ul>
+        <li>Actividades ilegales o fraudulentas.</li>
+        <li>Envío de spam o comunicaciones no solicitadas.</li>
+        <li>Contenido que viole las políticas de WhatsApp, Meta o la legislación ecuatoriana.</li>
+        <li>Suplantación de identidad o difusión de información falsa.</li>
+      </ul>
 
-      <h2>6. Propiedad intelectual</h2>
-      <p>El software de Codibot es propiedad de su titular. El usuario conserva la propiedad de las preguntas y respuestas que configure.</p>
+      <h2>6. Limitación de Responsabilidad</h2>
+      <p><strong>6.1 Servicio "tal cual".</strong> El servicio es proporcionado <strong>"tal cual"</strong> y <strong>"según disponibilidad"</strong>. Codibot Tech no garantiza que el servicio será ininterrumpido, libre de errores o completamente seguro.</p>
+      <p><strong>6.2 Exclusión de daños indirectos.</strong> En ningún caso Codibot Tech será responsable por daños indirectos, incidentales, especiales o consecuentes, incluyendo, pero sin limitarse a, la pérdida de beneficios, de datos o de fondo de comercio.</p>
+      <p><strong>6.3 Tope máximo de responsabilidad.</strong> La responsabilidad total de Codibot Tech frente al cliente, por cualquier causa relacionada con este contrato, estará limitada a la cantidad total efectivamente pagada por el cliente en los <strong>doce (12) meses anteriores</strong> al evento que origine la reclamación[reference:1].</p>
+      <p><strong>6.4 Interrupciones de terceros.</strong> Codibot Tech no se hace responsable por interrupciones o daños causados por proveedores externos (como Meta, WhatsApp, Cloudflare o pasarelas de pago), fallos en la conexión a internet del cliente o ataques informáticos.</p>
 
-      <h2>7. Cancelación</h2>
-      <p>El usuario puede cancelar su cuenta en cualquier momento. Los datos serán eliminados según la Política de Privacidad.</p>
+      <h2>7. Indemnización</h2>
+      <p>El cliente acepta <strong>defender, indemnizar y mantener indemne</strong> a Codibot Tech y a sus directivos, empleados y agentes de y contra cualquier reclamación, daño, obligación, pérdida, responsabilidad, costo o deuda, incluyendo honorarios de abogados, que surjan del uso que el cliente haga del servicio o de la violación de estos Términos, en particular por el contenido configurado en su chatbot.</p>
 
-      <h2>8. Modificaciones</h2>
-      <p>Codibot puede modificar estos términos notificando al usuario con antelación razonable.</p>
+      <h2>8. Propiedad Intelectual</h2>
+      <p>El software, código fuente, diseño y documentación de Codibot Tech son propiedad exclusiva de su titular. El usuario conserva la propiedad de las preguntas, respuestas y contenido que configure en su chatbot.</p>
 
-      <h2>9. Legislación aplicable</h2>
-      <p>Estos términos se rigen por las leyes de la República del Ecuador. Cualquier controversia se resolverá en los tribunales de Quito.</p>
+      <h2>9. Cancelación y Terminación</h2>
+      <p>El usuario puede cancelar su cuenta en cualquier momento notificándolo por escrito. Codibot Tech puede suspender o cancelar el servicio en caso de incumplimiento de estos términos. Los datos serán eliminados según lo establecido en la Política de Privacidad.</p>
+
+      <h2>10. Modificaciones</h2>
+      <p>Codibot Tech puede modificar estos términos notificando al usuario con antelación razonable a través del correo electrónico registrado o mediante aviso en el sitio web.</p>
+
+      <h2>11. Legislación Aplicable y Jurisdicción</h2>
+      <p>Estos términos se rigen por las leyes de la República del Ecuador. Cualquier controversia se resolverá en los tribunales competentes de Quito, Ecuador.</p>
+
+      <h2>12. Contacto</h2>
+      <p>Para cualquier consulta relacionada con estos términos, puede escribirnos a <a href="mailto:contacto@codibot.tech">contacto@codibot.tech</a>.</p>
     </div>
   </div>
 </main>
@@ -139,8 +172,7 @@
 <footer>
   <div class="container">
     <div class="footer-bottom">
-      <p><strong>ZAMBRANO MOYA EVELYN LIZETH</strong> — RUC: 1714298773001</p>
-      <p>Velasco Ibarra LT-122, Vía a Nono, Quito, Pichincha, Ecuador</p>
+      <p><strong>Codibot Tech</strong> — Quito, Ecuador · Atención 100% online</p>
       <p style="margin-top:12px;">© 2026 Codibot Tech. Todos los derechos reservados.</p>
     </div>
   </div>
