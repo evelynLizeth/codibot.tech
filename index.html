@@ -6,17 +6,17 @@
 <title>Codibot Tech | Ideas que trabajan por ti</title>
 <meta name="description" content="Automatiza tus ventas con chatbots inteligentes para WhatsApp, Instagram y Messenger. Planes Essential y Vendedor. Codibot Tech Ecuador.">
 <style>
-  /* ============ VARIABLES DE COLOR (BASADOS EN TU LOGO) ============ */
+  /* ============ VARIABLES DE COLOR ============ */
   :root {
-    --bg-dark: #0A1128;       /* Azul marino profundo (fondo del logo) */
-    --bg-card: #141E36;       /* Azul ligeramente más claro para tarjetas */
-    --bg-card-hover: #1A2744; /* Hover de tarjetas */
-    --primary-blue: #3B82F6;  /* Azul brillante del logo */
-    --primary-purple: #8B5CF6;/* Morado del logo */
+    --bg-dark: #0A1128;       /* Azul marino profundo */
+    --bg-card: #141E36;       /* Azul para tarjetas */
+    --bg-card-hover: #1A2744; 
+    --primary-blue: #3B82F6;  
+    --primary-purple: #8B5CF6;
     --gradient: linear-gradient(135deg, #3B82F6, #8B5CF6);
-    --text-light: #F8FAFC;    /* Blanco para títulos */
-    --text-muted: #94A3B8;    /* Gris azulado para párrafos */
-    --whatsapp: #25D366;      /* Verde WhatsApp (solo para botones de WhatsApp) */
+    --text-light: #F8FAFC;    
+    --text-muted: #94A3B8;    
+    --whatsapp: #25D366;      
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,11 +35,11 @@
   /* ============ ANIMACIONES ============ */
   @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
   @keyframes floatY2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(14px)} }
+  @keyframes floatRobot { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-15px) rotate(2deg)} }
   @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.08);opacity:.85} }
   @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
   @keyframes glow { 0%,100%{box-shadow:0 0 20px rgba(59,130,246,.3)} 50%{box-shadow:0 0 40px rgba(139,92,246,.6)} }
   @keyframes slideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes bounceIn { 0%{transform:scale(.3);opacity:0} 60%{transform:scale(1.05)} 100%{transform:scale(1);opacity:1} }
 
   .reveal { opacity: 0; transform: translateY(50px); transition: all .9s cubic-bezier(.2,.7,.3,1); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -60,12 +60,10 @@
   header.scrolled { padding: 10px 0; background: rgba(10, 17, 40, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,.5); }
   .nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
   
-  /* LOGO CSS (Recreación del logo en texto) */
   .logo-container { display: flex; flex-direction: column; }
   .logo {
     font-size: 1.6rem; font-weight: 800; color: #fff;
     display: flex; align-items: center; gap: 6px; letter-spacing: -0.5px;
-    font-family: 'Segoe UI', sans-serif;
   }
   .logo .icon {
     font-weight: 400; font-size: 1.4rem;
@@ -119,12 +117,12 @@
   }
   .hero::before {
     content:''; position:absolute; top:-100px; right:-100px; width:500px; height:500px;
-    background: radial-gradient(circle, rgba(59,130,246,.2) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
     border-radius: 50%; animation: floatY 8s ease-in-out infinite;
   }
   .hero::after {
     content:''; position:absolute; bottom:-150px; left:-100px; width:450px; height:450px;
-    background: radial-gradient(circle, rgba(139,92,246,.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(139,92,246,.1) 0%, transparent 70%);
     border-radius: 50%; animation: floatY2 10s ease-in-out infinite;
   }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; align-items: center; }
@@ -180,63 +178,37 @@
     background: transparent; border: 2px solid rgba(255,255,255,.2); color: #fff;
   }
   .btn-outline:hover { background: rgba(255,255,255,.05); border-color: var(--primary-blue); box-shadow: none; }
-  
-  /* Botón específico de WhatsApp */
-  .btn-wa {
-    background: var(--whatsapp); color: #fff;
-  }
+  .btn-wa { background: var(--whatsapp); color: #fff; }
   .btn-wa:hover { background: #20b858; box-shadow: 0 12px 28px rgba(37,211,102,.4); }
 
-  /* MOCKUP CHAT ANIMADO */
-  .chat-mockup {
-    background: var(--bg-card); border-radius: 22px; padding: 20px;
-    box-shadow: 0 30px 60px rgba(0,0,0,.5);
-    animation: floatY 6s ease-in-out infinite;
-    max-width: 380px; margin-left: auto;
+  /* ROBOT MASCOTA */
+  .hero-robot {
     position: relative;
-    border: 1px solid rgba(255,255,255,.05);
+    display: flex; justify-content: center; align-items: center;
+    animation: floatRobot 6s ease-in-out infinite;
+    z-index: 5;
   }
-  .chat-mockup::before {
-    content:''; position:absolute; top: -18px; left: -18px; width: 60px; height: 60px;
-    background: var(--gradient); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    animation: pulse 2s infinite;
-    z-index: -1;
+  .hero-robot img {
+    width: 100%; max-width: 380px;
+    filter: drop-shadow(0 20px 40px rgba(59,130,246,0.3));
   }
-  .chat-header {
-    display: flex; align-items: center; gap: 12px;
-    padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 14px;
+  .hero-robot::before {
+    content:''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(139,92,246,.2) 0%, transparent 70%);
+    border-radius: 50%; z-index: -1;
+    animation: pulse 4s ease-in-out infinite;
   }
-  .chat-avatar {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--gradient);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem; color: #fff;
+  .floating-chat {
+    position: absolute; top: 10%; right: 0;
+    background: var(--bg-card); padding: 10px 16px; border-radius: 16px;
+    border-bottom-left-radius: 4px; border: 1px solid rgba(255,255,255,.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,.3);
+    animation: floatY2 5s ease-in-out infinite;
+    font-size: .85rem; color: #E2E8F0;
+    display: flex; align-items: center; gap: 8px;
   }
-  .chat-header h4 { font-size: .95rem; color: #fff; margin-bottom: 2px; }
-  .chat-header span { font-size: .75rem; color: var(--primary-blue); }
-  .chat-body { display: flex; flex-direction: column; gap: 10px; min-height: 240px; }
-  .bubble {
-    padding: 10px 14px; border-radius: 14px; font-size: .88rem;
-    max-width: 80%; opacity: 0;
-    animation: bounceIn .5s forwards;
-    line-height: 1.4;
-  }
-  .bubble.bot { background: #1E293B; color: #E2E8F0; border-bottom-left-radius: 4px; align-self: flex-start; animation-delay: .3s; }
-  .bubble.user { background: var(--gradient); color: #fff; border-bottom-right-radius: 4px; align-self: flex-end; animation-delay: 1s; }
-  .bubble.bot2 { animation-delay: 1.8s; }
-  .bubble.user2 { animation-delay: 2.6s; }
-  .bubble.bot3 { animation-delay: 3.4s; }
-  .typing-indicator {
-    display: flex; gap: 4px; padding: 12px 16px; background: #1E293B;
-    border-radius: 14px; width: fit-content; align-self: flex-start;
-  }
-  .typing-indicator span {
-    width: 7px; height: 7px; background: #64748B; border-radius: 50%;
-    animation: pulse 1.2s infinite;
-  }
-  .typing-indicator span:nth-child(2) { animation-delay: .2s; }
-  .typing-indicator span:nth-child(3) { animation-delay: .4s; }
+  .floating-chat img { width: 20px; height: 20px; }
 
   /* ============ STATS BAR ============ */
   .stats {
@@ -264,7 +236,7 @@
   }
   .section-sub { text-align: center; color: var(--text-muted); max-width: 660px; margin: 0 auto 55px; font-size: 1.05rem; }
 
-  /* ============ FEATURES ============ */
+  /* ============ FEATURES (CON TUS ICONOS) ============ */
   .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 25px; }
   .feature {
     background: var(--bg-card); padding: 35px 26px; border-radius: 18px;
@@ -279,14 +251,15 @@
   }
   .feature:hover::before { width: 100%; }
   .feature:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,.4); background: var(--bg-card-hover); }
-  .feature .icon {
-    width: 65px; height: 65px; margin: 0 auto 18px;
-    background: rgba(59,130,246,.1); color: var(--primary-blue);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; transition: transform .4s;
-    border: 1px solid rgba(59,130,246,.2);
+  .feature .icon-img {
+    width: 70px; height: 70px; margin: 0 auto 18px;
+    border-radius: 50%; overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,.3);
+    transition: transform .4s;
+    border: 2px solid rgba(59,130,246,.3);
   }
-  .feature:hover .icon { transform: rotateY(360deg); background: var(--gradient); color: #fff; border-color: transparent; }
+  .feature:hover .icon-img { transform: rotateY(360deg) scale(1.1); border-color: var(--primary-blue); }
+  .feature .icon-img img { width: 100%; height: 100%; object-fit: cover; }
   .feature h3 { font-size: 1.15rem; margin-bottom: 10px; color: #fff; }
   .feature p { color: var(--text-muted); font-size: .95rem; }
 
@@ -325,7 +298,8 @@
     box-shadow: 0 8px 20px rgba(59,130,246,.4);
     white-space: nowrap;
   }
-  .plan h3 { font-size: 1.55rem; color: #fff; margin-bottom: 6px; }
+  .plan h3 { font-size: 1.55rem; color: #fff; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+  .plan h3 img { width: 28px; height: 28px; border-radius: 50%; }
   .plan .tagline { color: var(--text-muted); font-size: .9rem; margin-bottom: 22px; }
   .plan .price { font-size: 2.6rem; font-weight: 800; color: #fff; margin-bottom: 4px; line-height: 1; }
   .plan .price small { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
@@ -368,6 +342,7 @@
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
   .about-text h2 { font-size: 2rem; color: #fff; margin-bottom: 18px; }
   .about-text p { color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; }
+  .about-logo { max-width: 300px; margin-bottom: 20px; display: block; }
   .about-info {
     background: var(--bg-card);
     padding: 34px; border-radius: 18px;
@@ -450,7 +425,7 @@
     .hero-grid { grid-template-columns: 1fr; text-align: center; }
     .hero p { margin: 0 auto 32px; }
     .hero-buttons { justify-content: center; }
-    .chat-mockup { margin: 40px auto 0; }
+    .hero-robot { margin: 40px auto 0; }
     .stats-grid { grid-template-columns: repeat(2,1fr); }
     .about-grid { grid-template-columns: 1fr; }
   }
@@ -463,7 +438,8 @@
     .section-title { font-size: 1.8rem; }
     .plan .price { font-size: 2.2rem; }
     .stat .num { font-size: 2.1rem; }
-    .logo-tagline { display: none; } /* Ocultar eslogan en móviles para ahorrar espacio */
+    .logo-tagline { display: none; }
+    .floating-chat { display: none; } /* Ocultar burbuja flotante en móviles */
   }
 </style>
 </head>
@@ -505,21 +481,12 @@
         </div>
       </div>
 
-      <!-- Mockup animado de chat -->
-      <div class="chat-mockup">
-        <div class="chat-header">
-          <div class="chat-avatar">🤖</div>
-          <div>
-            <h4>Codibot Assistant</h4>
-            <span>● En línea ahora</span>
-          </div>
-        </div>
-        <div class="chat-body">
-          <div class="bubble bot">¡Hola! 👋 Soy el asistente virtual. ¿En qué puedo ayudarte hoy?</div>
-          <div class="bubble user">Quiero información sobre sus planes</div>
-          <div class="bubble bot bot2">¡Perfecto! Tenemos 2 planes: Essential ($49) y Vendedor ($99). ¿Cuál te interesa?</div>
-          <div class="bubble user user2">El Vendedor 🚀</div>
-          <div class="bubble bot bot3">¡Excelente elección! Te envío la info completa ahora mismo ✉️</div>
+      <!-- ROBOT MASCOTA Y BURBUJA FLOTANTE -->
+      <div class="hero-robot">
+        <img src="img/robot.png" alt="Codibot Robot - Asistente Virtual">
+        <div class="floating-chat">
+          <img src="img/icon-typing.png" alt="Escribiendo...">
+          <span>¡Hola! ¿En qué te ayudo?</span>
         </div>
       </div>
     </div>
@@ -545,22 +512,22 @@
     <p class="section-sub reveal">Soluciones tecnológicas diseñadas para emprendedores y pymes que quieren crecer sin contratar más personal.</p>
     <div class="features">
       <div class="feature reveal">
-        <div class="icon">🤖</div>
+        <div class="icon-img"><img src="img/icon-code.png" alt="Desarrollo de Chatbots"></div>
         <h3>Chatbots a medida</h3>
         <p>Diseñamos flujos de conversación personalizados según tu negocio y tus clientes.</p>
       </div>
       <div class="feature reveal">
-        <div class="icon">💬</div>
+        <div class="icon-img"><img src="img/icon-chat.png" alt="WhatsApp Business API"></div>
         <h3>WhatsApp Business API</h3>
         <p>Integración oficial con WhatsApp para respuestas automáticas y masivas.</p>
       </div>
       <div class="feature reveal">
-        <div class="icon">🛒</div>
+        <div class="icon-img"><img src="img/icon-cart.png" alt="Ventas Automatizadas"></div>
         <h3>Ventas automatizadas</h3>
         <p>Catálogos, pedidos, pagos y seguimiento sin intervención humana.</p>
       </div>
       <div class="feature reveal">
-        <div class="icon">📊</div>
+        <div class="icon-img"><img src="img/icon-devices.png" alt="Reportes en tiempo real"></div>
         <h3>Reportes en tiempo real</h3>
         <p>Panel con métricas de conversaciones, ventas y rendimiento del bot.</p>
       </div>
@@ -577,7 +544,7 @@
     <div class="plans">
 
       <div class="plan reveal-left">
-        <h3>Plan Essential</h3>
+        <h3><img src="img/icon-robot-chat.png" alt="Essential"> Plan Essential</h3>
         <p class="tagline">Para dar el primer paso en automatización</p>
         <div class="price">$49 <small>/ mes</small></div>
         <p class="price-note">Ideal para emprendedores y pequeños comercios</p>
@@ -595,7 +562,7 @@
 
       <div class="plan featured reveal-right">
         <span class="badge">⭐ MÁS POPULAR</span>
-        <h3>Plan Vendedor</h3>
+        <h3><img src="img/icon-cart.png" alt="Vendedor"> Plan Vendedor</h3>
         <p class="tagline">Para convertir conversaciones en ventas</p>
         <div class="price">$99 <small>/ mes</small></div>
         <p class="price-note">Ideal para tiendas y negocios en crecimiento</p>
@@ -658,6 +625,8 @@
     <h2 class="section-title reveal">Sobre <span class="accent">Codibot Tech</span></h2>
     <div class="about-grid">
       <div class="about-text reveal-left">
+        <!-- LOGO EN SECCIÓN NOSOTROS -->
+        <img src="img/logo-blanco.png" alt="Codibot Tech Logo" class="about-logo">
         <h2>Automatización hecha en Ecuador 🇪🇨</h2>
         <p>Somos un emprendimiento tecnológico dedicado a crear chatbots y automatizaciones para negocios que quieren crecer sin complicarse.</p>
         <p>Nuestro objetivo es que cualquier emprendedor, sin conocimientos técnicos, pueda tener un asistente virtual que atienda, venda y fidelice a sus clientes.</p>
@@ -742,7 +711,8 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h4>Codibot Tech</h4>
+        <!-- LOGO EN FOOTER -->
+        <img src="img/logo-oscuro.png" alt="Codibot Tech" style="max-width: 180px; margin-bottom: 15px;">
         <p>Desarrollo de chatbots y soluciones tecnológicas para negocios en Ecuador y Latinoamérica.</p>
       </div>
       <div>
@@ -840,9 +810,9 @@
   // ============ PARALLAX SUAVE EN HERO ============
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
-    const mockup = document.querySelector('.chat-mockup');
-    if (mockup && scrolled < 800) {
-      mockup.style.transform = `translateY(${scrolled * -0.05}px)`;
+    const robot = document.querySelector('.hero-robot');
+    if (robot && scrolled < 800) {
+      robot.style.transform = `translateY(${scrolled * -0.05}px)`;
     }
   });
 </script>
