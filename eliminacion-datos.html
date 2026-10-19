@@ -1,29 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliminación de Datos - Codibot Tech</title>
-    <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 2rem; max-width: 800px; margin: auto; background-color: #0a1937; color: #f8fafc; }
-        h1, h2 { color: #0974f7; }
-        a { color: #8137f4; }
-        ul { margin-bottom: 1rem; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eliminación de Datos | Codibot Tech</title>
+<style>
+  :root {
+    --bg-dark: #0a1937; --bg-deep: #02081c; --bg-section: #081b3a;
+    --bg-card: #0c2245; --primary-blue: #0974f7; --primary-purple: #8137f4;
+    --gradient: linear-gradient(135deg, #0974f7, #2490f4, #595ae6, #8844e2, #8137f4);
+    --gradient-simple: linear-gradient(135deg, #0974f7, #8137f4);
+    --text-light: #F8FAFC; --text-muted: #94A3B8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--text-muted); line-height: 1.7; background: var(--bg-dark); }
+  a { color: var(--primary-blue); text-decoration: none; transition: color .3s; }
+  a:hover { color: var(--primary-purple); text-decoration: underline; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+  header {
+    background: rgba(10, 25, 55, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 16px 0; position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+  }
+  .nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .logo-container { display: flex; flex-direction: column; }
+  .logo { font-size: 1.5rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 6px; letter-spacing: -0.5px; }
+  .logo .icon { font-weight: 400; font-size: 1.3rem; background: var(--gradient-simple); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .logo .codi { color: #fff; }
+  .logo .bot { background: var(--gradient-simple); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .logo-tagline { font-size: 0.55rem; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-top: -2px; }
+  .logo-tagline span { background: var(--gradient-simple); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  
+  .back-btn {
+    background: var(--gradient-simple); color: #fff; padding: 9px 22px; border-radius: 50px;
+    font-weight: 600; font-size: .9rem; transition: transform .25s, box-shadow .25s;
+  }
+  .back-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(9,116,247,.4); text-decoration: none; color: #fff; }
+
+  main { padding: 70px 0 60px; }
+  .page-title {
+    font-size: 2.4rem; color: #fff; margin-bottom: 12px;
+    background: var(--gradient); background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 4s linear infinite;
+    letter-spacing: -.5px;
+  }
+  .page-sub { color: var(--text-muted); font-size: 1rem; margin-bottom: 40px; }
+  
+  .legal-card {
+    background: var(--bg-card);
+    border-radius: 20px; padding: 45px 40px;
+    border: 1px solid rgba(255,255,255,.05);
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    border-left: 5px solid var(--primary-blue);
+  }
+  .legal-card h2 { font-size: 1.3rem; color: #fff; margin: 30px 0 12px; display: flex; align-items: center; gap: 10px; }
+  .legal-card h2:first-of-type { margin-top: 0; }
+  .legal-card h2::before {
+    content: ''; width: 8px; height: 8px; background: var(--gradient); border-radius: 50%; flex-shrink: 0;
+  }
+  .legal-card p { color: #CBD5E1; margin-bottom: 15px; font-size: 1rem; }
+  .legal-card ol { padding-left: 20px; margin-bottom: 20px; }
+  .legal-card ol li { color: #CBD5E1; font-size: 1rem; margin-bottom: 10px; padding-left: 10px; }
+  .legal-card strong { color: #fff; }
+  
+  .intro-box {
+    background: rgba(9,116,247,.08); border-left: 4px solid var(--primary-blue);
+    padding: 20px 24px; border-radius: 10px; margin-bottom: 28px;
+  }
+  .intro-box p { color: #CBD5E1; margin: 0; }
+
+  .email-box {
+    background: rgba(255,255,255,.05); border: 1px dashed rgba(255,255,255,.2);
+    padding: 15px; border-radius: 10px; text-align: center;
+    font-size: 1.2rem; font-weight: 700; color: #fff; margin: 20px 0;
+  }
+
+  footer {
+    background: var(--bg-deep); color: var(--text-muted);
+    padding: 40px 0 25px; font-size: .88rem; margin-top: 60px;
+  }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.05); padding-top: 20px; text-align: center; color: #64748B; }
+  .footer-bottom p { margin-bottom: 6px; }
+  .footer-bottom strong { color: #CBD5E1; }
+
+  @media (max-width: 600px) {
+    .page-title { font-size: 1.8rem; }
+    .legal-card { padding: 30px 22px; }
+    .logo-tagline { display: none; }
+  }
+</style>
 </head>
 <body>
-    <h1>Solicitud de Eliminación de Datos</h1>
-    <p>En <strong>Codibot Tech</strong> respetamos tu privacidad. Si deseas que eliminemos los datos personales que hayamos podido recopilar a través de nuestras integraciones con Meta (Facebook/WhatsApp), sigue estos pasos:</p>
 
-    <h2>Instrucciones:</h2>
-    <ul>
-        <li><strong>Paso 1:</strong> Envía un correo electrónico a <a href="mailto:contacto@codibot.tech">contacto@codibot.tech</a>.</li>
-        <li><strong>Paso 2:</strong> En el asunto del correo, escribe: <strong>"Solicitud de eliminación de datos"</strong>.</li>
-        <li><strong>Paso 3:</strong> En el cuerpo del mensaje, incluye tu nombre completo y el correo electrónico o número de teléfono asociado a tu cuenta de Facebook/WhatsApp.</li>
-    </ul>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo-container" style="text-decoration:none;">
+      <div class="logo"><span class="icon">&lt;/&gt;</span><span class="codi">codi</span><span class="bot">bot</span></div>
+      <div class="logo-tagline">IDEAS QUE <span>TRABAJAN POR TI.</span></div>
+    </a>
+    <a href="index.html" class="back-btn">← Volver al inicio</a>
+  </div>
+</header>
 
-    <p>Procesaremos tu solicitud y eliminaremos tus datos de nuestros registros en un plazo máximo de <strong>30 días hábiles</strong>, de conformidad con nuestra Política de Privacidad.</p>
-    
-    <p><a href="index.html">Volver al inicio</a></p>
+<main>
+  <div class="container">
+    <h1 class="page-title">Eliminación de Datos</h1>
+    <p class="page-sub">Última actualización: 19 de octubre de 2026</p>
+
+    <div class="legal-card">
+      <div class="intro-box">
+        <p>En <strong>Codibot Tech</strong> respetamos tu privacidad. Si deseas que eliminemos los datos personales que hayamos podido recopilar a través de nuestras integraciones con Meta (Facebook, Instagram o WhatsApp), puedes solicitarlo siguiendo estos sencillos pasos.</p>
+      </div>
+
+      <h2>Instrucciones para solicitar la eliminación</h2>
+      <p>Para procesar tu solicitud, por favor sigue estos pasos:</p>
+      
+      <ol>
+        <li>Envía un correo electrónico a nuestra dirección de soporte:</li>
+      </ol>
+      
+      <div class="email-box">
+        <a href="mailto:contacto@codibot.tech">contacto@codibot.tech</a>
+      </div>
+
+      <ol start="2">
+        <li>En el <strong>asunto</strong> del correo, escribe: <em>"Solicitud de eliminación de datos"</em>.</li>
+        <li>En el <strong>cuerpo del mensaje</strong>, incluye tu nombre completo y el correo electrónico o número de teléfono asociado a tu cuenta de Facebook o WhatsApp.</li>
+      </ol>
+
+      <h2>¿Qué sucede después?</h2>
+      <p>Una vez recibamos tu solicitud, verificaremos tu identidad para asegurarnos de no eliminar datos de la persona equivocada. Posteriormente, eliminaremos tus datos de nuestros registros en un plazo máximo de <strong>30 días hábiles</strong>, de conformidad con lo establecido en nuestra <a href="politica-privacidad.html">Política de Privacidad</a>.</p>
+
+      <h2>Datos que se eliminarán</h2>
+      <p>Eliminaremos cualquier registro asociado a tu interacción con nuestros chatbots o nuestras herramientas de desarrollo, incluyendo, si aplica: nombre, correo electrónico, número de teléfono y registros de conversaciones almacenados en nuestros servidores.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p><strong>Codibot Tech</strong> — Quito, Ecuador · Atención 100% online</p>
+      <p style="margin-top:12px;">© 2026 Codibot Tech. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
